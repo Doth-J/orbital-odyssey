@@ -16,11 +16,10 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install dependencies and build
         run: |
-          cd page 
           bun install
           bun run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./page/dist
+          publish_dir: ./dist
