@@ -14,11 +14,7 @@ export default function App({ title }: { title: string }) {
   return (
     <div className={`display`}>
       <Lamp isOpen={isOpen} width={625} setOpen={setOpen} />
-      <Portrait
-        isOpen={isOpen}
-        title={title}
-        portaitClassname="bg-[url(./stars.png)] bg-center bg-cover"
-      >
+      <Portrait isOpen={isOpen} title={title}>
         <div className={`container ${isOpen ? "on" : "off"}`}>
           <Galaxy isOpen={!isOpen} />
         </div>
