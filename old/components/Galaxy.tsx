@@ -1,5 +1,3 @@
-import "./Galaxy.css";
-import React from "react";
 export default function Galaxy({ isOpen }: { isOpen: boolean }) {
   return (
     <ol className={`solar_system ${isOpen ? "on" : "off"}`}>

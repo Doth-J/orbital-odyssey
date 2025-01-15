@@ -1,29 +1,35 @@
-import Lamp from "./components/Lamp";
-import Portrait from "./components/Portrait";
-import Galaxy from "./components/Galaxy";
+import React from "react";
 import { useState } from "react";
-import stars from "./stars.png";
+import Lamp from "./components/Lamp";
+import useTitle from "./hooks/useTitle";
+import Portrait from "./components/Portrait";
+import Creator from "./components/Creator";
+import Galaxy from "./components/Galaxy";
+import AudioPlayer from "./components/AudioPlayer";
 
-export default function App() {
+export default function App({ title }: { title: string }) {
+  useTitle(title);
   const [isOpen, setOpen] = useState<boolean>(true);
+
   return (
-    <div>
-      <Lamp isOpen={isOpen} setOpen={setOpen} />
+    <div className={`display`}>
+      <Lamp isOpen={isOpen} width={625} setOpen={setOpen} />
       <Portrait
         isOpen={isOpen}
-        title="Orbital Odyssey"
-        author="Doth-J"
-        link="https://github.com/Doth-J"
-        width="550px"
-        height="350px"
+        title={title}
+        portaitClassname="bg-[url(./stars.png)] bg-center bg-cover"
       >
-        <div
-          className={`container ${isOpen ? "on" : "off"}`}
-          style={{ backgroundImage: `url(${stars})` }}
-        >
+        <div className={`container ${isOpen ? "on" : "off"}`}>
           <Galaxy isOpen={!isOpen} />
         </div>
       </Portrait>
+      <Creator
+        isOpen={isOpen}
+        creator="Developed by Doth-J"
+        link="https://github.com/Doth-J"
+      >
+        <AudioPlayer isOpen={!isOpen} source="./voyage.mp3" />
+      </Creator>
     </div>
   );
 }
