@@ -11,6 +11,7 @@ audio::-webkit-media-controls-time-remaining-display {
 }
 
 .container {
+  background-image: url(./Artwork.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
